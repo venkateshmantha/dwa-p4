@@ -27,6 +27,15 @@
     max-width: 40rem;
 }
 
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.input-width {
+    width: 300px !important;
+}
+
 footer {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -41,7 +50,17 @@ footer p {
     width: 20px;
 }
 
-.col-centered {
-    float: none;
+.center-div
+{
     margin: 0 auto;
+    width:50%;
+}
+
+.display-4 {
+    font-size: xx-large !important;
+}
+
+.padding {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important;
 }

@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('tudu');
-});
+Route::get('/', 'TuduController@index');
+
+Route::post('/create', 'TuduController@create');
+
+Route::put('/update/{id}', 'TuduController@update');
