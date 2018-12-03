@@ -34,7 +34,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button type='submit' class='btn btn-primary mb-2'>Create</button>
+                <button type='submit' class='btn btn-light mb-2'>Create</button>
             </form>
         </div>
     </section>
@@ -88,34 +88,90 @@
                 </div>
                 <div class='col-md-4'>
                     @foreach($mediumtudus as $mediumtudu)
-                        <div class='card mb-4 shadow-sm'>
-                            <div class='card-body'>
-                                <p class='card-text'>{{$mediumtudu->description}}</p>
-                                <div class='d-flex justify-content-between align-items-center'>
-                                    <div class='btn-group'>
-                                        <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-                                        <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
+                        <form method='POST' action='/update/{{$mediumtudu->id}}'>
+                            {{ method_field('put') }}
+                            {{ csrf_field() }}
+                            <div class='card mb-4 shadow-sm'>
+                                <div class='card-body'>
+                                    @if($mediumtudu->isdone)
+                                        <s class='card-text'>{{$mediumtudu->description}}</s>
+                                    @else
+                                        <p class='card-text'>{{$mediumtudu->description}}</p>
+                                    @endif
+                                    <div class='d-flex justify-content-between align-items-center'>
+                                        <div class='btn-group'>
+                                            @if(!$mediumtudu->isdone)
+                                                <button type='submit'
+                                                        name='button'
+                                                        value='done'
+                                                        class='btn btn-sm btn-outline-secondary'>
+                                                    <span class="fa fa-check" aria-hidden="true"></span></button>
+                                                <button type='submit'
+                                                        name='button'
+                                                        value='edit'
+                                                        class='btn btn-sm btn-outline-secondary'>
+                                                    <span class="fa fa-pencil" aria-hidden="true"></span></button>
+                                            @endif
+                                            <button type='submit'
+                                                    name='button'
+                                                    value='delete'
+                                                    class='btn btn-sm btn-outline-secondary'><span class="fa fa-trash"
+                                                                                                   aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                        @if($mediumtudu->isdone)
+                                            <span class="badge badge-success">Done</span>
+                                        @else
+                                            <span class="badge badge-warning">Medium</span>
+                                        @endif
                                     </div>
-                                    <span class="badge badge-warning">Medium</span>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     @endforeach
                 </div>
                 <div class='col-md-4'>
                     @foreach($lowtudus as $lowtudu)
-                        <div class='card mb-4 shadow-sm'>
-                            <div class='card-body'>
-                                <p class='card-text'>{{$lowtudu->description}}</p>
-                                <div class='d-flex justify-content-between align-items-center'>
-                                    <div class='btn-group'>
-                                        <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-                                        <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
+                        <form method='POST' action='/update/{{$lowtudu->id}}'>
+                            {{ method_field('put') }}
+                            {{ csrf_field() }}
+                            <div class='card mb-4 shadow-sm'>
+                                <div class='card-body'>
+                                    @if($lowtudu->isdone)
+                                        <s class='card-text'>{{$lowtudu->description}}</s>
+                                    @else
+                                        <p class='card-text'>{{$lowtudu->description}}</p>
+                                    @endif
+                                    <div class='d-flex justify-content-between align-items-center'>
+                                        <div class='btn-group'>
+                                            @if(!$lowtudu->isdone)
+                                                <button type='submit'
+                                                        name='button'
+                                                        value='done'
+                                                        class='btn btn-sm btn-outline-secondary'>
+                                                    <span class="fa fa-check" aria-hidden="true"></span></button>
+                                                <button type='submit'
+                                                        name='button'
+                                                        value='edit'
+                                                        class='btn btn-sm btn-outline-secondary'>
+                                                    <span class="fa fa-pencil" aria-hidden="true"></span></button>
+                                            @endif
+                                            <button type='submit'
+                                                    name='button'
+                                                    value='delete'
+                                                    class='btn btn-sm btn-outline-secondary'><span class="fa fa-trash"
+                                                                                                   aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                        @if($lowtudu->isdone)
+                                            <span class="badge badge-success">Done</span>
+                                        @else
+                                            <span class="badge badge-info">Low</span>
+                                        @endif
                                     </div>
-                                    <span class="badge badge-info">Low</span>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     @endforeach
                 </div>
             </div>
