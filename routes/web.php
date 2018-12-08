@@ -16,3 +16,7 @@ Route::get('/', 'TuduController@index');
 Route::post('/create', 'TuduController@create');
 
 Route::put('/update/{id}', 'TuduController@update');
+
+Route::put('/edit/{id}', 'TuduController@edit');
+
+Route::delete('/delete/{id}', 'TuduController@delete');

@@ -7,26 +7,26 @@
         <section class='jumbotron padding text-center'>
             <h1 class='display-4 lead font-italic text-muted mb-4'>#Tudu: A Todo that is 140 characters or less</h1>
             <div class='container'>
-                <label class='lead'>Get started by entering a new tudu</label>
-                <form method='POST' class='justify-content-center' action='/create'>
+                <label class='lead text-danger'>Are you sure you want to delete your tudu?</label>
+                <form method='POST' class='justify-content-center' action='/delete/{{$tudu->id}}'>
+                    {{ method_field('delete') }}
                     {{ csrf_field() }}
                     <div class='form-group center-div mb-2'>
-                        <textarea class='form-control input-width'
+                        <textarea disabled class='form-control input-width'
                                   rows='3'
                                   id='decription'
                                   name='description'
-                                  placeholder='Enter here'></textarea>
-                        @include('field-error', ['field' => 'description'])
+                                  placeholder='Enter here'>{{$tudu->description}}</textarea>
                     </div>
                     <div class='center-div mb-4'>
-                        <label class='lead'>Set the priority for your tudu</label>
-                        <select name='priority' class='form-control'>
+                        <label class='lead'>Priority for your tudu</label>
+                        <select disabled name='priority' class='form-control'>
                             @foreach($priorities as $priority)
-                                <option>{{$priority}}</option>
+                                <option @if($priority == $tudu->priority){{'selected'}}@endif>{{$priority}}</option>
                             @endforeach
                         </select>
                     </div>
-                    <button type='submit' class='btn btn-info mb-2'>Create</button>
+                    <button type='submit' class='btn btn-danger mb-2'>Delete</button>
                 </form>
                 @if(session('alert'))
                     <div class='alert alert-success center-div' role='alert'>
@@ -34,7 +34,6 @@
                     </div>
                 @endif
             </div>
-
         </section>
 
         <div class='album py-5 bg-light'>
