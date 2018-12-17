@@ -57,9 +57,9 @@ class TuduController extends Controller
         $tags = Tag::getForCheckboxes();
         $checkedTags = [];
         $tagsForThisTudu = $tudu->tags;
-        $tudusCount=1;
+        $tudusCount = 1;
 
-        foreach($tagsForThisTudu as $tagForThisTudu) {
+        foreach ($tagsForThisTudu as $tagForThisTudu) {
             array_push($checkedTags, $tagForThisTudu['id']);
         }
 
@@ -68,11 +68,11 @@ class TuduController extends Controller
         if ($action == 'done') {
             $tudu->isdone = true;
             $tudu->save();
+
             return redirect('/')->with([
                 'alert' => 'Your tudu is marked done.'
             ]);
-        }
-        else if ($action == 'edit') {
+        } else if ($action == 'edit') {
             return view('edit')->with([
                 'tudu' => $tudu,
                 'tags' => $tags,
@@ -83,8 +83,7 @@ class TuduController extends Controller
                 'mediumtudus' => session('mediumtudus'),
                 'lowtudus' => session('lowtudus')
             ]);
-        }
-        else if ($action == 'delete') {
+        } else if ($action == 'delete') {
             return view('delete')->with([
                 'tudu' => $tudu,
                 'tags' => $tags,
@@ -103,6 +102,7 @@ class TuduController extends Controller
         $tudu = Tudu::find($id);
         $tags = Tag::getForCheckboxes();
         $checkedTags = $request->input('tags');
+
         return view('edit')->with([
             'tudu' => $tudu,
             'tags' => $tags,

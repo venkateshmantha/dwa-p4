@@ -4,13 +4,13 @@
     <title>Tudu</title>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-    <link rel="icon" href="{{ asset('favicon.png') }}" />
+    <link rel='icon' href='{{ asset('favicon.png') }}'/>
     <!-- Bootstrap CSS -->
     <link rel='stylesheet'
           href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
           integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO'
           crossorigin='anonymous'>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
     <link rel='stylesheet' href='/css/main.css'>
 </head>
 
@@ -37,16 +37,16 @@
     @yield('content')
 </section>
 
-    @if($tudusCount==0)
-        <div class='container'>
-            <h1 class='display-4 lead text-muted mb-4 center-div mt-4'>You do not have any tudus!</h1>
-        </div>
-    @else
+@if($tudusCount==0)
+    <div class='container'>
+        <h1 class='display-4 lead text-muted mb-4 center-div mt-4'>You do not have any tudus!</h1>
+    </div>
+@else
     <div class='album py-5 bg-light'>
         <div class='container'>
             <div class='row'>
                 <div class='col-md-4'>
-                    <span class="badge badge-danger mb-2">High</span>
+                    <span class='badge badge-danger mb-2'>High</span>
                     @foreach($hightudus as $hightudu)
                         <form method='POST' action='/update/{{$hightudu->id}}'>
                             {{ method_field('put') }}
@@ -65,28 +65,29 @@
                                                         name='button'
                                                         value='done'
                                                         class='btn btn-sm btn-outline-secondary'>
-                                                    <span class="fa fa-check" aria-hidden="true"></span></button>
+                                                    <span class='fa fa-check' aria-hidden='true'></span></button>
                                                 <button type='submit'
                                                         name='button'
                                                         value='edit'
                                                         class='btn btn-sm btn-outline-secondary'>
-                                                    <span class="fa fa-pencil" aria-hidden="true"></span></button>
+                                                    <span class='fa fa-pencil' aria-hidden='true'></span></button>
                                             @endif
                                             <button type='submit'
                                                     name='button'
                                                     value='delete'
-                                                    class='btn btn-sm btn-outline-secondary'><span class="fa fa-trash"
-                                                                                                   aria-hidden="true"></span>
+                                                    class='btn btn-sm btn-outline-secondary'><span class='fa fa-trash'
+                                                                                                   aria-hidden='true'></span>
                                             </button>
                                         </div>
                                         @if($hightudu->isdone)
-                                            <span class="badge badge-success">Done</span>
+                                            <span class='badge badge-success'>Done</span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class='card-footer'>
+                                    <span class='fa fa-tags'></span>
                                     @foreach($hightudu->tags as $tag)
-                                        <span class="badge badge-light">{{$tag->name}}</span>
+                                        <span class='badge badge-light'>{{$tag->name}}</span>
                                     @endforeach
                                 </div>
                             </div>
@@ -94,7 +95,7 @@
                     @endforeach
                 </div>
                 <div class='col-md-4'>
-                    <span class="badge badge-warning mb-2">Medium</span>
+                    <span class='badge badge-warning mb-2'>Medium</span>
                     @foreach($mediumtudus as $mediumtudu)
                         <form method='POST' action='/update/{{$mediumtudu->id}}'>
                             {{ method_field('put') }}
@@ -113,28 +114,29 @@
                                                         name='button'
                                                         value='done'
                                                         class='btn btn-sm btn-outline-secondary'>
-                                                    <span class="fa fa-check" aria-hidden="true"></span></button>
+                                                    <span class='fa fa-check' aria-hidden='true'></span></button>
                                                 <button type='submit'
                                                         name='button'
                                                         value='edit'
                                                         class='btn btn-sm btn-outline-secondary'>
-                                                    <span class="fa fa-pencil" aria-hidden="true"></span></button>
+                                                    <span class='fa fa-pencil' aria-hidden='true'></span></button>
                                             @endif
                                             <button type='submit'
                                                     name='button'
                                                     value='delete'
-                                                    class='btn btn-sm btn-outline-secondary'><span class="fa fa-trash"
-                                                                                                   aria-hidden="true"></span>
+                                                    class='btn btn-sm btn-outline-secondary'><span class='fa fa-trash'
+                                                                                                   aria-hidden='true'></span>
                                             </button>
                                         </div>
                                         @if($mediumtudu->isdone)
-                                            <span class="badge badge-success">Done</span>
+                                            <span class='badge badge-success'>Done</span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class='card-footer'>
+                                    <span class='fa fa-tags'></span>
                                     @foreach($mediumtudu->tags as $tag)
-                                        <span class="badge badge-light">{{$tag->name}}</span>
+                                        <span class='badge badge-light'>{{$tag->name}}</span>
                                     @endforeach
                                 </div>
                             </div>
@@ -142,7 +144,7 @@
                     @endforeach
                 </div>
                 <div class='col-md-4'>
-                    <span class="badge badge-info mb-2">Low</span>
+                    <span class='badge badge-info mb-2'>Low</span>
                     @foreach($lowtudus as $lowtudu)
                         <form method='POST' action='/update/{{$lowtudu->id}}'>
                             {{ method_field('put') }}
@@ -161,28 +163,29 @@
                                                         name='button'
                                                         value='done'
                                                         class='btn btn-sm btn-outline-secondary'>
-                                                    <span class="fa fa-check" aria-hidden="true"></span></button>
+                                                    <span class='fa fa-check' aria-hidden='true'></span></button>
                                                 <button type='submit'
                                                         name='button'
                                                         value='edit'
                                                         class='btn btn-sm btn-outline-secondary'>
-                                                    <span class="fa fa-pencil" aria-hidden="true"></span></button>
+                                                    <span class='fa fa-pencil' aria-hidden='true'></span></button>
                                             @endif
                                             <button type='submit'
                                                     name='button'
                                                     value='delete'
-                                                    class='btn btn-sm btn-outline-secondary'><span class="fa fa-trash"
-                                                                                                   aria-hidden="true"></span>
+                                                    class='btn btn-sm btn-outline-secondary'><span class='fa fa-trash'
+                                                                                                   aria-hidden='true'></span>
                                             </button>
                                         </div>
                                         @if($lowtudu->isdone)
-                                            <span class="badge badge-success">Done</span>
+                                            <span class='badge badge-success'>Done</span>
                                         @endif
                                     </div>
                                 </div>
                                 <div class='card-footer'>
+                                    <span class='fa fa-tags'></span>
                                     @foreach($lowtudu->tags as $tag)
-                                        <span class="badge badge-light">{{$tag->name}}</span>
+                                        <span class='badge badge-light'>{{$tag->name}}</span>
                                     @endforeach
                                 </div>
                             </div>
@@ -192,7 +195,7 @@
             </div>
         </div>
     </div>
-    @endif
+@endif
 
 <footer class='text-muted'>
     <div class='container'>

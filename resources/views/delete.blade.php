@@ -27,9 +27,12 @@
                         </select>
                     </div>
                     @foreach($tags as $tagId => $tagName)
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="tags[]" value={{$tagId}} {{ (in_array($tagId, $checkedTags)) ? 'checked' : '' }} disabled>
-                            <label class="form-check-label">{{$tagName}}</label>
+                        <div class='form-check form-check-inline'>
+                            <input class='form-check-input'
+                                   type='checkbox'
+                                   name='tags[]'
+                                   value={{$tagId}} {{ (in_array($tagId, $checkedTags)) ? 'checked' : '' }} disabled>
+                            <label class='form-check-label'>{{$tagName}}</label>
                         </div>
                     @endforeach
                     <div class='center-div mt-4'>

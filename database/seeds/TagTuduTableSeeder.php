@@ -15,7 +15,11 @@ class TagTuduTableSeeder extends Seeder
         $tudus = [
             'Read a book by tomorrow' => ['Productivity', 'Misc'],
             'Grocery shopping' => ['Misc', 'Health'],
-            'Attend yoga class on sunday' => ['Entertainment', 'Health', 'Misc']
+            'Watch a lecture video before midnight' => ['Productivity', 'Work'],
+            'Go for a run in the morning' => ['Health', 'Productivity'],
+            'Attend yoga class on sunday' => ['Entertainment', 'Health', 'Misc'],
+            'Go for a hike next weekend' => ['Entertainment', 'Misc', 'Health'],
+            'Read about investment banking' => ['Work', 'Productivity']
         ];
 
         foreach ($tudus as $desc => $tags) {
