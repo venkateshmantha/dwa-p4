@@ -101,11 +101,17 @@ class TuduController extends Controller
     {
         $tudu = Tudu::find($id);
         $tags = Tag::getForCheckboxes();
-        $checkedTags = $request->input('tags');
+        $checkedTags = [];
+        if(!is_null($request->input('tags')))
+        {
+            $checkedTags = $request->input('tags');
+        }
+        $tudusCount = 1;
 
         return view('edit')->with([
             'tudu' => $tudu,
             'tags' => $tags,
+            'tudusCount' => $tudusCount,
             'checkedTags' => $checkedTags,
             'priorities' => session('priorities'),
             'hightudus' => session('hightudus'),
