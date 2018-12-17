@@ -10,13 +10,30 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'TuduController@index');
 
-Route::get('/', 'TuduController@index');
+    Route::post('/create', 'TuduController@create');
 
-Route::post('/create', 'TuduController@create');
+    Route::get('/update/{id}', 'TuduController@showupdate');
+    Route::put('/update/{id}', 'TuduController@update');
 
-Route::put('/update/{id}', 'TuduController@update');
+    Route::put('/edit/{id}', 'TuduController@edit');
 
-Route::put('/edit/{id}', 'TuduController@edit');
+    Route::delete('/delete/{id}', 'TuduController@delete');
+});
 
-Route::delete('/delete/{id}', 'TuduController@delete');
+Auth::routes();
+
+Route::get('/show-login-status', function () {
+    $user = Auth::user();
+
+    if ($user) {
+        dump('You are logged in.', $user->toArray());
+    } else {
+        dump('You are not logged in.');
+    }
+
+    return;
+});
+

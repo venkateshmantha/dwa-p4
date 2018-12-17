@@ -32,6 +32,7 @@ class TudusTableSeeder extends Seeder
             $tudu->description = $tuduData[0];
             $tudu->priority = $tuduData[1];
             $tudu->isdone = $tuduData[2];
+            $tudu->user_id = 1;
 
             $tudu->save();
             $count--;

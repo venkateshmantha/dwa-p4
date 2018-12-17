@@ -53,6 +53,7 @@ footer p {
 .center-div
 {
     margin: 0 auto;
+    text-align: center;
     width:50%;
 }
 
@@ -65,4 +66,7 @@ footer p {
     padding-bottom: 32px !important;
 }
 
+.center-align {
+    text-align:center;
+}
 
