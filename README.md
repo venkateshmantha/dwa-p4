@@ -38,8 +38,12 @@ __Delete__
 
 ## Outside resources
 *https://stackoverflow.com/questions/46421020/custom-validation-method-not-allowed-on-error?rq=1*
+
 *https://fontawesome.com/icons?d=gallery*
+
 *https://getbootstrap.com/docs/4.0/layout/overview/*
+
 *https://laravel.io/forum/08-14-2014-pivot-table-seeding-problem*
+
 *https://www.amazon.com/CiskeBoekelo-nl-Listing-it-Checklist/dp/B00CEYD7TQ*
 
